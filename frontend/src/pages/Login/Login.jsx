@@ -8,6 +8,7 @@ import Input from '../../componets/Form/Input.jsx'
 import Alert from '../../componets/Alert/Alert.jsx'
 
 const DEMO_HABILITADO = import.meta.env.VITE_AUTH_DEMO === 'true'
+const MOSTRAR_AYUDA = import.meta.env.DEV && !DEMO_HABILITADO
 
 export default function Login() {
   const { ingresar } = useAuth()
@@ -46,10 +47,10 @@ export default function Login() {
         <p className="auth__sub">Smart Homes Constructores Generales S.A.C.</p>
 
         <form className="auth__card" noValidate onSubmit={enviar}>
-          {!DEMO_HABILITADO ? (
-            <Alert tone="info" title="Entorno de desarrollo">
-              El backend aún no está disponible. Activa VITE_AUTH_DEMO=true para explorar la
-              interfaz con una sesión de muestra.
+          {MOSTRAR_AYUDA ? (
+            <Alert tone="info" title="Acceso de desarrollo">
+              Usa <strong>admin</strong> / <strong>admin123</strong> para ingresar con los datos de
+              ejemplo.
             </Alert>
           ) : null}
 

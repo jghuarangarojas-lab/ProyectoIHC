@@ -10,7 +10,7 @@ import Input from '../Form/Input.jsx'
 const ROL_ETIQUETA = { admin: 'Administrador', empleado: 'Empleado', cliente: 'Cliente' }
 
 export default function Topbar({ pagina, onMenu, avisoCount = 0 }) {
-  const { tema, alternarTema } = useTheme()
+  const { tema, alternar } = useTheme()
   const { rol, salir } = useAuth()
   const { navegar } = useRoute()
   const [termino, setTermino] = useState('')
@@ -78,10 +78,10 @@ export default function Topbar({ pagina, onMenu, avisoCount = 0 }) {
         <button
           className="icon-btn"
           type="button"
-          aria-label={tema === 'claro' ? 'Activar tema oscuro' : 'Activar tema claro'}
-          onClick={alternarTema}
+          aria-label={tema === 'dark' ? 'Activar tema claro' : 'Activar tema oscuro'}
+          onClick={alternar}
         >
-          <Icon name={tema === 'claro' ? 'moon' : 'sun'} size={20} />
+          <Icon name={tema === 'dark' ? 'sun' : 'moon'} size={20} />
         </button>
 
         <span className="bell-wrap">

@@ -53,7 +53,7 @@ export function Dona({ segmentos, tamano = 168, titulo, total }) {
           cy={tamano / 2}
           r={radio}
           fill="none"
-          stroke="var(--stroke-3)"
+          stroke="var(--line-soft)"
           strokeWidth={grosor}
         />
         {arcos.map((s) => (
@@ -97,7 +97,7 @@ export function Dona({ segmentos, tamano = 168, titulo, total }) {
               className="chart-legend__swatch"
               style={{ backgroundColor: s.color || `var(--chart-${(i % 4) + 1})` }}
             />
-            {s.etiqueta} · {s.valor}
+            {s.etiqueta} · {s.valorEtiqueta ?? s.valor}
           </span>
         ))}
       </div>

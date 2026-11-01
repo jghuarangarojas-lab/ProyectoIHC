@@ -24,6 +24,12 @@ const columnas = [
   },
   { key: 'correo', header: 'Correo', sortable: true, render: (f) => f.correo || '—' },
   {
+    key: 'usuario',
+    header: 'Usuario',
+    sortable: true,
+    render: (f) => (f.usuario ? <span className="mono">{f.usuario}</span> : '—'),
+  },
+  {
     key: 'rol',
     header: 'Rol',
     sortable: true,
@@ -44,6 +50,8 @@ const columnas = [
 const campos = [
   { nombre: 'nombre', etiqueta: 'Nombre completo', tipo: 'texto', obligatorio: true },
   { nombre: 'correo', etiqueta: 'Correo', tipo: 'correo', obligatorio: true },
+  { nombre: 'usuario', etiqueta: 'Usuario de acceso (opcional)', tipo: 'texto' },
+  { nombre: 'contrasena', etiqueta: 'Contraseña (opcional, mínimo 6)', tipo: 'clave' },
   { nombre: 'rol', etiqueta: 'Rol', tipo: 'seleccion', opciones: ROLES, obligatorio: true },
   { nombre: 'estado', etiqueta: 'Estado', tipo: 'seleccion', opciones: ESTADOS, obligatorio: true },
 ]
@@ -57,7 +65,7 @@ export default function Usuarios() {
       servicio={usuariosService}
       columnas={columnas}
       campos={campos}
-      camposBusqueda={['nombre', 'correo']}
+      camposBusqueda={['nombre', 'correo', 'usuario']}
       filtros={[
         { nombre: 'rol', etiqueta: 'Rol', opciones: ROLES },
         { nombre: 'estado', etiqueta: 'Estado', opciones: ESTADOS },

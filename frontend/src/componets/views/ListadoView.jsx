@@ -232,7 +232,7 @@ export default function ListadoView({
               onCambio: (v) => estado.setFiltro(f.nombre, v),
             }))}
             actions={
-              <Button variant="ghost" icon="refresh" onClick={estado.recargar} loading={estado.cargando}>
+              <Button variant="quiet" icon="refresh" onClick={estado.recargar} loading={estado.cargando}>
                 Actualizar
               </Button>
             }

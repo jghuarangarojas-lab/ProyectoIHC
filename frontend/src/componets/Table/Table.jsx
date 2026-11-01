@@ -98,7 +98,7 @@ export default function Table({ columnas, filas, cargando, error, vacio, orden, 
                           danger={a.danger}
                           onClick={() => a.onClick(fila)}
                         >
-                          {a.label}
+                          {a.etiqueta}
                         </DropdownItem>
                       ))}
                     </Dropdown>
